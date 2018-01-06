@@ -62,7 +62,7 @@ void State::comeBack() {
 	this->schedule_[j] = temp;
 }
 
-double State::evalDistance() {
+double State::evalDistance() const {
 	int n_cities = this->data.getNcities();
 	vector<int> schedule = this->schedule_;
 	vector<vector<double> > tab_cities = this->data.getTabCities();
@@ -77,7 +77,7 @@ double State::evalDistance() {
 	return distance;
 }
 
-void State::display() {
+void State::display() const {
 	vector<int> schedule = this->schedule_;
 	Data data = this->data;
 	vector<vector<double> > tab_cities = this->data.getTabCities();

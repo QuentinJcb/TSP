@@ -22,8 +22,8 @@ public:
 	vector<int> getSchedule() const;
 	void generateNeighbor();
 	void comeBack();
-	double evalDistance();
-	void display();
+	double evalDistance() const;
+	void display() const;
 
 };
 

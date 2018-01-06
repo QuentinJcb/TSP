@@ -14,7 +14,7 @@ SimuAnnealing::SimuAnnealing(int nb_transitions, double alpha, bool is_minimisat
 	cout << "Object Simu is being created" << endl;
 }
 
-bool SimuAnnealing::accept(const double& yi, const double& yj, const double& temperature) {
+bool SimuAnnealing::accept(const double& yi, const double& yj, const double& temperature) const {
 	if (!this->is_minimisation_) {
 		if (yj >= yi) {
 			return true;
