@@ -20,8 +20,8 @@ bool SimuAnnealing::accept(const double& yi, const double& yj, const double& tem
 			return true;
 		}
 		double proba = exp((yj - yi)/temperature);
-		random_device rd; 
-    	mt19937 gen(rd());
+		random_device rd;
+		mt19937 gen(rd());
 		bernoulli_distribution d(proba);
 		bool result = d(gen);
 		return result;
@@ -32,8 +32,8 @@ bool SimuAnnealing::accept(const double& yi, const double& yj, const double& tem
 			return true;
 		}
 		double proba = exp(-(yj - yi)/temperature);
-		random_device rd; 
-    	mt19937 gen(rd());
+		random_device rd;
+		mt19937 gen(rd());
 		bernoulli_distribution d(proba);
 		bool result = d(gen);
 		return result;
