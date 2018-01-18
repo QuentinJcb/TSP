@@ -2,7 +2,6 @@
 #define DATA_H
 
 #include <vector>
-using namespace std;
 
 
 class Data {
@@ -10,13 +9,13 @@ class Data {
 protected:
 	double radius_;
 	int n_cities_;
-	vector<vector<double> > tab_cities_;
+	std::vector<std::vector<double> > tab_cities_;
 
 public:
 	Data(double radius, int n_cities);
 	double getRadius() const;
 	int getNcities() const;
-	vector<vector<double> > getTabCities() const;
+	std::vector<std::vector<double> > getTabCities() const;
 
 };
 
