@@ -8,9 +8,7 @@ using namespace std;
 
 #define PI 3.14159
 
-Data::Data(double radius, int n_cities) {
-	radius_ = radius;
-	n_cities_ = n_cities;
+Data::Data(double radius, int n_cities) : radius_(radius), n_cities_(n_cities) {
 	vector<vector<double> > tab_cities;
 	for (int i=0; i<n_cities; i++) {
 		double theta = ((double) rand() / (RAND_MAX)) * 2 * PI;

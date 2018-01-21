@@ -7,10 +7,9 @@
 
 using namespace std;
 
-SimuAnnealing::SimuAnnealing(int nb_transitions, double alpha, bool is_minimisation) {
-	nb_transitions_ = nb_transitions;
-	alpha_ = alpha;
-	is_minimisation_ = is_minimisation;
+SimuAnnealing::SimuAnnealing(int nb_transitions, double alpha, bool is_minimisation) : 	
+nb_transitions_(nb_transitions), alpha_(alpha), is_minimisation_(is_minimisation)
+{
 	cout << "Object Simu is being created" << endl;
 }
 

@@ -8,7 +8,6 @@
 using namespace std;
 
 State::State(double radius, int n_cities):data(radius, n_cities) {
-	Data data(radius, n_cities);
 	this->data = data;
 	indices_ = vector<int>();
 	indices_.push_back(0);
