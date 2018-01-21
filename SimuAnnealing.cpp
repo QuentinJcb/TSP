@@ -8,14 +8,14 @@
 using namespace std;
 
 SimuAnnealing::SimuAnnealing(int nb_transitions, double alpha, bool is_minimisation) {
-	this->nb_transitions_ = nb_transitions;
-	this->alpha_ = alpha;
-	this-> is_minimisation_ = is_minimisation;
+	nb_transitions_ = nb_transitions;
+	alpha_ = alpha;
+	is_minimisation_ = is_minimisation;
 	cout << "Object Simu is being created" << endl;
 }
 
 bool SimuAnnealing::accept(const double& yi, const double& yj, const double& temperature) const {
-	if (!this->is_minimisation_) {
+	if (!is_minimisation_) {
 		if (yj >= yi) {
 			return true;
 		}
@@ -44,13 +44,13 @@ double SimuAnnealing::heatUpLoop(double radius, int n_cities) {
 	double target_proba = 0.8;
 	double distance = 0.0;
 	State state(radius, n_cities);
-	for(int i=0; i < this->nb_transitions_; i++) {
+	for(int i=0; i < nb_transitions_; i++) {
 		double yi = state.evalDistance();
 		state.generateNeighbor();
 		double yj = state.evalDistance();
 		distance += abs(yj - yi);
 	}
-	double mean_distance = distance/this->nb_transitions_;
+	double mean_distance = distance/nb_transitions_;
 	double temperature = - mean_distance/log(target_proba);
 	return temperature;
 }
@@ -61,7 +61,7 @@ vector<double> SimuAnnealing::coolingLoop(const double& init_temp, State& state)
 	double yi = state.evalDistance();
 
 	while (temperature > 1e-4 * init_temp) {
-		for (int i=0;i < this->nb_transitions_; i++) {
+		for (int i=0;i < nb_transitions_; i++) {
 			state.generateNeighbor();
 			double yj = state.evalDistance();
 			if (this->accept(yi, yj, temperature)) {
@@ -71,7 +71,7 @@ vector<double> SimuAnnealing::coolingLoop(const double& init_temp, State& state)
 				state.comeBack();
 			}
 		}
-		temperature *= this->alpha_;
+		temperature *= alpha_;
 		values.push_back(yi);
 	}
 	return values;
